@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>GotCIPA usage trends — private draft for ACTUM</title>
+  <style>
+    :root {
+      --bg: #fafafa;
+      --paper: #ffffff;
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --banner-bg: #2c2c2c;
+      --banner-text: #f5f5f5;
+      --accent: #c45c26;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.55;
+      font-size: 17px;
+    }
+    .banner {
+      background: var(--banner-bg);
+      color: var(--banner-text);
+      padding: 0.75rem 1.5rem;
+      font-family: system-ui, sans-serif;
+      font-size: 0.875rem;
+      letter-spacing: 0.02em;
+    }
+    .wrap {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 2rem 1.25rem 4rem;
+      background: var(--paper);
+      border-left: 1px solid var(--border);
+      border-right: 1px solid var(--border);
+    }
+    h1 {
+      font-size: 1.75rem;
+      font-weight: 600;
+      line-height: 1.25;
+      margin: 0 0 0.5rem;
+    }
+    .subtitle {
+      color: var(--muted);
+      font-size: 0.95rem;
+      margin-bottom: 2rem;
+    }
+    h2 {
+      font-size: 1.25rem;
+      margin: 2.25rem 0 0.75rem;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 0.35rem;
+    }
+    h3 { font-size: 1.05rem; margin: 1.5rem 0 0.5rem; }
+    p { margin: 0.75rem 0; }
+    ul { margin: 0.5rem 0 1rem; padding-left: 1.25rem; }
+    li { margin: 0.35rem 0; }
+    .stat-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin: 1.25rem 0;
+    }
+    @media (max-width: 520px) { .stat-row { grid-template-columns: 1fr; } }
+    .stat {
+      border: 1px solid var(--border);
+      padding: 1rem;
+    }
+    .stat .num {
+      font-size: 1.75rem;
+      font-weight: 600;
+      font-family: system-ui, sans-serif;
+      color: var(--accent);
+    }
+    .stat .lbl {
+      font-size: 0.85rem;
+      color: var(--muted);
+      font-family: system-ui, sans-serif;
+    }
+    figure {
+      margin: 1.5rem 0;
+      border: 1px solid var(--border);
+      padding: 1rem;
+    }
+    figcaption {
+      font-size: 0.8rem;
+      color: var(--muted);
+      font-family: system-ui, sans-serif;
+      margin-top: 0.75rem;
+    }
+    .chart-svg { width: 100%; height: auto; display: block; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+      font-family: system-ui, sans-serif;
+    }
+    th, td {
+      text-align: left;
+      padding: 0.5rem 0.6rem;
+      border-bottom: 1px solid var(--border);
+    }
+    th { font-weight: 600; }
+    .callout {
+      background: #f4f4f4;
+      border-left: 3px solid var(--accent);
+      padding: 0.85rem 1rem;
+      margin: 1rem 0;
+      font-size: 0.95rem;
+    }
+    .caveats { font-size: 0.9rem; color: var(--muted); }
+    .collab li { list-style: square; }
+    footer {
+      margin-top: 3rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--border);
+      font-size: 0.8rem;
+      color: var(--muted);
+      font-family: system-ui, sans-serif;
+    }
+  </style>
+</head>
+<body>
+  <div class="banner">Private draft for Liz / ACTUM — not for publication. Generated {{ meta.reference_end }}.</div>
+  <article class="wrap">
+    <h1>GotCIPA audit activity: what the usage data shows</h1>
+    <p class="subtitle">Aggregate trends from gotcipa.com to support the stop CIPA shakedowns narrative — heroes and victims among small businesses, nonprofits, and public agencies.</p>
+
+    <h2>Why this exists</h2>
+    <p>
+      GotCIPA (Papaya’s public CIPA risk audit) gives people a way to see whether everyday website tracking may create legal exposure under California’s Invasion of Privacy Act.
+      When demand letters and filings accelerate—as your coalition has described—more merchants, agencies, and operators run checks before the legislative window closes.
+    </p>
+    <p>
+      This draft summarizes <strong>aggregate</strong> activity from email-captured leads and completed audit runs. It is meant to complement ACTUM’s policy story: real constituents checking real sites, not a technical treatise on cookies or pixels.
+    </p>
+    <p class="callout">
+      ACTUM has cited a review of 64 CIPA class actions in which average attorney fees were about $2&nbsp;million and average class member recovery about $17. That figure is ACTUM’s; it is included here only as narrative context, not derived from GotCIPA data.
+    </p>
+
+    <h2>The spike</h2>
+    <p>
+      In the most recent 14 days ending {{ meta.reference_end }}, GotCIPA recorded
+      <strong>{{ spike.requests_last_14d }}</strong> audit runs across
+      <strong>{{ spike.unique_domains_last_14d }}</strong> unique domains, compared with
+      {{ spike.requests_prior_14d }} runs and {{ spike.unique_domains_prior_14d }} unique domains in the prior 14 days.
+      Email lead captures (excluding internal/test addresses) were
+      {{ spike.leads_last_14d }} vs {{ spike.leads_prior_14d }} in those same windows.
+    </p>
+    <div class="stat-row">
+      <div class="stat">
+        <div class="num">{{ volume.total_audit_requests }}</div>
+        <div class="lbl">Total audit runs (all time in export)</div>
+      </div>
+      <div class="stat">
+        <div class="num">{{ volume.unique_domains_audited }}</div>
+        <div class="lbl">Unique domains audited</div>
+      </div>
+      <div class="stat">
+        <div class="num">{{ volume.unique_emails_users }}</div>
+        <div class="lbl">Unique visitor emails (excl. internal/test)</div>
+      </div>
+      <div class="stat">
+        <div class="num">{{ volume.full_accept_gpc_sessions }}</div>
+        <div class="lbl">Runs with full accept + GPC session paths</div>
+      </div>
+    </div>
+
+    <figure>
+      {{ chart_weekly_requests | safe }}
+      <figcaption>Source: audit_requests.csv · weekly audit runs and unique domains · through {{ meta.reference_end }}</figcaption>
+    </figure>
+    <figure>
+      {{ chart_weekly_leads | safe }}
+      <figcaption>Source: audit_leads.csv · weekly email lead captures · through {{ meta.reference_end }}</figcaption>
+    </figure>
+
+    {% if volume.repeat_testers_5plus %}
+    <h3>Volume hygiene: repeat testers</h3>
+    <p>Raw run counts can be inflated when one organization tests repeatedly. Domains with five or more runs in this export:</p>
+    <table>
+      <thead><tr><th>Domain (aggregate only)</th><th>Runs</th></tr></thead>
+      <tbody>
+        {% for row in volume.repeat_testers_5plus[:8] %}
+        <tr><td>{{ row.domain }}</td><td>{{ row.count }}</td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    {% endif %}
+
+    <h2>Who is checking</h2>
+    <p>
+      Among {{ volume.user_lead_rows }} lead rows (after filtering {{ volume.leads_filtered_internal_test }} internal, test, or disposable addresses),
+      about {{ pct_free_email }}% used consumer email domains (Gmail, etc.)—a rough signal of individuals and small operators rather than only enterprise security teams.
+    </p>
+    {% if public_agency_note %}
+    <p class="callout">{{ public_agency_note }}</p>
+    {% endif %}
+
+    <figure>
+      {{ chart_org_type | safe }}
+      <figcaption>Inferred org type · unique audited domains · keyword/TLD heuristics</figcaption>
+    </figure>
+    <figure>
+      {{ chart_size_proxy | safe }}
+      <figcaption>Inferred size proxy · unique audited domains · not firmographic census data</figcaption>
+    </figure>
+
+    <h2>What kinds of sites</h2>
+    <p>Sector tags are inferred from domain names. Counts below are <strong>unique domains</strong>, not raw audit volume, so one heavy tester does not dominate the story.</p>
+    <figure>
+      {{ chart_sectors | safe }}
+      <figcaption>Top sectors · unique domains · inferred from URL keywords</figcaption>
+    </figure>
+
+    <h3>Category-level examples (no contact details)</h3>
+    <ul>
+      {% for ex in anonymized_examples %}
+      <li>{{ ex }}</li>
+      {% endfor %}
+    </ul>
+
+    <h2>Middle tech and ordinary commerce</h2>
+    <p>
+      Most audited properties in this export look like everyday commerce and services—restaurants and suppliers, regional healthcare and veterinary groups, retailers, and similar—not a roster of large consumer platforms alone.
+      Sites in this position often use mainstream analytics and advertising tags for ordinary business reasons; GotCIPA is built to help defense-side teams and operators understand exposure, not to fuel offensive targeting.
+    </p>
+    <p>
+      This export does <strong>not</strong> include a per-run inventory of Meta pixels, Google tags, or other vendors. A future CSV column (e.g. <code>tracker_vendors</code>) can slot into the same regeneration pipeline when available.
+    </p>
+
+    <h2>What we cannot claim from this dataset</h2>
+    <ul class="caveats">
+      <li><strong>No geography or IP:</strong> GotCIPA does not store visitor IP or geo; we cannot chart “uptick from Texas” or similar from these files.</li>
+      <li><strong>Size and sector are inferred</strong>, not verified firmographics.</li>
+      <li><strong>Verdict fields are sparse</strong> in the leads export ({% if methodology.verdict_sparse %}most rows lack a filled verdict{% else %}verdict coverage is limited{% endif %}).</li>
+      <li><strong>No individual emails or identifiable contacts</strong> appear in this document by design.</li>
+    </ul>
+
+    <h2>Questions for Liz — collaboration</h2>
+    <ul class="collab">
+      <li>Does the 14-day vs prior-14-day spike framing match what you are seeing in filing and demand-letter velocity?</li>
+      <li>Which sections are useful for elected-official meetings vs coalition email—what should we cut or expand?</li>
+      <li>Are category-level examples enough, or do you want a short list of named domains approved for closed-door use only?</li>
+      <li>When you share the advocacy email template, should Papaya send to the {{ volume.unique_emails_users }} filtered user emails as a separate mobilization step?</li>
+      <li>Any additional aggregate cuts (e.g. nonprofit-only) you want in the next CSV refresh?</li>
+    </ul>
+
+    <footer>
+      Papaya · GotCIPA data story pipeline · Replace <code>data/audit_leads.csv</code> and <code>data/audit_requests.csv</code>, then run <code>python scripts/build_story.py</code>.
+    </footer>
+  </article>
+</body>
+</html>

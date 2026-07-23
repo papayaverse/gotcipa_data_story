@@ -1,0 +1,16 @@
+# Raw audit exports (PII) — never commit
+data/*
+!data/.gitkeep
+*.csv
+audit_*-export-*.csv
+
+# Local meeting notes
+*.docx
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+
+# Local HTML preview (commit output/data_story.md + aggregates.json instead)
+output/liz_data_story.html

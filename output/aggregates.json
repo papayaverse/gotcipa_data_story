@@ -1,0 +1,240 @@
+{
+  "meta": {
+    "generated_for": "Liz Tulasi / ACTUM (private draft)",
+    "reference_end": "2026-07-22",
+    "data_sources": [
+      "audit_leads.csv",
+      "audit_requests.csv"
+    ]
+  },
+  "volume": {
+    "total_audit_requests": 449,
+    "unique_domains_audited": 254,
+    "total_leads": 173,
+    "unique_emails_all": 105,
+    "unique_emails_users": 98,
+    "leads_filtered_internal_test": 13,
+    "user_lead_rows": 160,
+    "free_email_user_leads": 40,
+    "full_accept_gpc_sessions": 46,
+    "repeat_testers_5plus": [
+      {
+        "domain": "restaurantware.com",
+        "count": 34
+      },
+      {
+        "domain": "westernvetpartners.com",
+        "count": 32
+      },
+      {
+        "domain": "inayajewelry.com",
+        "count": 14
+      },
+      {
+        "domain": "happytailsvetclinic.com",
+        "count": 13
+      },
+      {
+        "domain": "customizable.com",
+        "count": 10
+      },
+      {
+        "domain": "bylvayhcp.com",
+        "count": 8
+      },
+      {
+        "domain": "nature.com",
+        "count": 7
+      },
+      {
+        "domain": "rxexpressmarketing.com",
+        "count": 5
+      }
+    ]
+  },
+  "spike": {
+    "requests_last_14d": 110,
+    "requests_prior_14d": 107,
+    "unique_domains_last_14d": 59,
+    "unique_domains_prior_14d": 58,
+    "leads_last_14d": 56,
+    "leads_prior_14d": 37
+  },
+  "weekly_requests": [
+    {
+      "week": "2026-W17",
+      "audits": 6,
+      "unique_domains": 5
+    },
+    {
+      "week": "2026-W18",
+      "audits": 32,
+      "unique_domains": 18
+    },
+    {
+      "week": "2026-W19",
+      "audits": 33,
+      "unique_domains": 25
+    },
+    {
+      "week": "2026-W20",
+      "audits": 12,
+      "unique_domains": 8
+    },
+    {
+      "week": "2026-W21",
+      "audits": 24,
+      "unique_domains": 20
+    },
+    {
+      "week": "2026-W22",
+      "audits": 29,
+      "unique_domains": 26
+    },
+    {
+      "week": "2026-W23",
+      "audits": 18,
+      "unique_domains": 12
+    },
+    {
+      "week": "2026-W24",
+      "audits": 3,
+      "unique_domains": 3
+    },
+    {
+      "week": "2026-W25",
+      "audits": 25,
+      "unique_domains": 17
+    },
+    {
+      "week": "2026-W26",
+      "audits": 41,
+      "unique_domains": 30
+    },
+    {
+      "week": "2026-W27",
+      "audits": 72,
+      "unique_domains": 30
+    },
+    {
+      "week": "2026-W28",
+      "audits": 31,
+      "unique_domains": 27
+    },
+    {
+      "week": "2026-W29",
+      "audits": 51,
+      "unique_domains": 35
+    },
+    {
+      "week": "2026-W30",
+      "audits": 41,
+      "unique_domains": 17
+    }
+  ],
+  "weekly_leads": [
+    {
+      "week": "2026-W19",
+      "leads": 4
+    },
+    {
+      "week": "2026-W20",
+      "leads": 3
+    },
+    {
+      "week": "2026-W21",
+      "leads": 6
+    },
+    {
+      "week": "2026-W22",
+      "leads": 8
+    },
+    {
+      "week": "2026-W23",
+      "leads": 13
+    },
+    {
+      "week": "2026-W25",
+      "leads": 11
+    },
+    {
+      "week": "2026-W26",
+      "leads": 25
+    },
+    {
+      "week": "2026-W27",
+      "leads": 21
+    },
+    {
+      "week": "2026-W28",
+      "leads": 17
+    },
+    {
+      "week": "2026-W29",
+      "leads": 31
+    },
+    {
+      "week": "2026-W30",
+      "leads": 14
+    }
+  ],
+  "org_type_unique_domains": {
+    "commercial": 237,
+    "nonprofit_org": 6,
+    "education": 8,
+    "public_agency": 3
+  },
+  "org_type_lead_rows": {
+    "commercial": 151,
+    "education": 3,
+    "nonprofit_org": 3,
+    "public_agency": 3
+  },
+  "size_proxy_unique_domains": {
+    "unknown": 79,
+    "likely_smb": 152,
+    "enterprise_known": 6,
+    "agency_edu_nonprofit": 17
+  },
+  "sector_unique_domains": {
+    "General commerce": 215,
+    "Healthcare / pharma": 14,
+    "Education": 6,
+    "Jewelry / retail": 5,
+    "Automotive": 4,
+    "Insurance": 2,
+    "Government / public sector": 2,
+    "E-commerce / DTC": 2,
+    "Veterinary / pet care": 2,
+    "Publishing / media": 1,
+    "Restaurant / hospitality supply": 1
+  },
+  "verdicts_leads": {
+    "HIGH": 9,
+    "MEDIUM": 1
+  },
+  "anonymized_examples": [
+    "General commercial website (one of several similar sites in this dataset)",
+    "Healthcare or life-sciences organization (one of several similar sites in this dataset)",
+    "College or university property (one of several similar sites in this dataset)",
+    "Independent jewelry or specialty retailer (one of several similar sites in this dataset)",
+    "Automotive dealer or services (one of several similar sites in this dataset)",
+    "Insurance or benefits provider",
+    "Public-agency or state-related site",
+    "Direct-to-consumer or e-commerce brand",
+    "Regional veterinary or pet-care business",
+    "Publisher or media property"
+  ],
+  "public_agency_note": "Public-agency signals are present in the dataset (e.g. .gov email or government-related domains).",
+  "methodology": {
+    "no_ip_geo": true,
+    "size_proxy_inferred": true,
+    "sector_keyword_inferred": true,
+    "verdict_sparse": true,
+    "optional_columns_supported": [
+      "sector",
+      "employee_band",
+      "tracker_vendors"
+    ]
+  }
+}
