@@ -9,7 +9,6 @@ import pandas as pd
 import seaborn as sns
 
 ACCENT = "#c45c26"
-ACCENT_LIGHT = "#e8a882"
 SLATE = "#4a4a4a"
 MUTED = "#888888"
 BG = "#ffffff"
@@ -112,48 +111,6 @@ def chart_weekly_leads(weekly: list[dict], out_dir: Path) -> str:
     return _save(fig, out_dir / "weekly_leads.png")
 
 
-def chart_spike_comparison(spike: dict, out_dir: Path) -> str:
-    apply_theme()
-    df = pd.DataFrame(
-        {
-            "metric": ["Audit runs", "Unique domains", "Email leads"],
-            "last_14d": [
-                spike["requests_last_14d"],
-                spike["unique_domains_last_14d"],
-                spike["leads_last_14d"],
-            ],
-            "prior_14d": [
-                spike["requests_prior_14d"],
-                spike["unique_domains_prior_14d"],
-                spike["leads_prior_14d"],
-            ],
-        }
-    )
-    long = df.melt(id_vars="metric", var_name="window", value_name="count")
-    long["window"] = long["window"].map(
-        {"last_14d": "Last 14 days", "prior_14d": "Prior 14 days"}
-    )
-
-    fig, ax = plt.subplots(figsize=(8, 4.5))
-    sns.barplot(
-        data=long,
-        x="metric",
-        y="count",
-        hue="window",
-        palette=[ACCENT, ACCENT_LIGHT],
-        edgecolor="white",
-        linewidth=0.6,
-        ax=ax,
-    )
-    ax.set_xlabel("")
-    ax.set_ylabel("Count")
-    ax.set_title("14-day windows compared", loc="left", fontweight="600", pad=12)
-    ax.legend(title="", frameon=False, loc="upper right")
-    ax.spines["top"].set_visible(False)
-    ax.spines["right"].set_visible(False)
-    return _save(fig, out_dir / "spike_comparison.png")
-
-
 def chart_horizontal_bars(
     items: list[tuple[str, int]],
     *,
@@ -209,7 +166,6 @@ def generate_all_charts(
     return {
         "weekly_requests": chart_weekly_requests(agg["weekly_requests"], charts_dir),
         "weekly_leads": chart_weekly_leads(agg["weekly_leads"], charts_dir),
-        "spike_comparison": chart_spike_comparison(agg["spike"], charts_dir),
         "org_type": chart_horizontal_bars(
             org_items,
             title="Org type (unique domains, inferred)",

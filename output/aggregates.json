@@ -180,9 +180,9 @@
   ],
   "org_type_unique_domains": {
     "commercial": 237,
+    "public_agency": 3,
     "education": 8,
-    "nonprofit_org": 6,
-    "public_agency": 3
+    "nonprofit_org": 6
   },
   "org_type_lead_rows": {
     "commercial": 151,
@@ -191,8 +191,8 @@
     "public_agency": 3
   },
   "size_proxy_unique_domains": {
-    "likely_smb": 152,
     "unknown": 79,
+    "likely_smb": 152,
     "agency_edu_nonprofit": 17,
     "enterprise_known": 6
   },
@@ -203,11 +203,11 @@
     "Jewelry / retail": 5,
     "Automotive": 4,
     "E-commerce / DTC": 2,
-    "Government / public sector": 2,
-    "Insurance": 2,
     "Veterinary / pet care": 2,
-    "Restaurant / hospitality supply": 1,
-    "Publishing / media": 1
+    "Insurance": 2,
+    "Government / public sector": 2,
+    "Publishing / media": 1,
+    "Restaurant / hospitality supply": 1
   },
   "sector_audit_counts": {
     "General commerce": 271,

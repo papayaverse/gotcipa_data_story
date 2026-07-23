@@ -27,10 +27,6 @@ Email lead captures (excluding internal/test addresses): **56** vs 37 in those s
 | Unique visitor emails (excl. internal/test) | 98 |
 | Runs with full accept + GPC session paths | 46 |
 
-![14-day windows compared](charts/spike_comparison.png)
-
-*Last 14 days vs prior 14 days · audit runs, unique domains, email leads*
-
 ![Weekly audit runs and unique domains](charts/weekly_requests.png)
 
 *Source: audit_requests export · through 2026-07-22*

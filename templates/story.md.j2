@@ -27,10 +27,6 @@ Email lead captures (excluding internal/test addresses): **{{ spike.leads_last_1
 | Unique visitor emails (excl. internal/test) | {{ volume.unique_emails_users }} |
 | Runs with full accept + GPC session paths | {{ volume.full_accept_gpc_sessions }} |
 
-![14-day windows compared](charts/{{ charts.spike_comparison }})
-
-*Last 14 days vs prior 14 days · audit runs, unique domains, email leads*
-
 ![Weekly audit runs and unique domains](charts/{{ charts.weekly_requests }})
 
 *Source: audit_requests export · through {{ meta.reference_end }}*
