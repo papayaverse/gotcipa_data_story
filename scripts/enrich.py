@@ -356,6 +356,15 @@ def compute_aggregates(
         size_counts[sz] += 1
         sector_counts[primary_sector(prof.sectors)] += 1
 
+    sector_audit_counts: Counter = Counter()
+    for r in requests:
+        dom = url_domain(r.get("url", ""))
+        if not dom:
+            continue
+        prof = profiles.get(dom)
+        sector = primary_sector(prof.sectors) if prof else primary_sector(sector_tags(dom))
+        sector_audit_counts[sector] += 1
+
     # Lead-only org signals (email-based, for "who is checking")
     lead_org_type = Counter()
     for row in leads:
@@ -368,11 +377,11 @@ def compute_aggregates(
     # Anonymized examples (one per sector, max 10)
     examples: list[str] = []
     seen_sectors: set[str] = set()
-    for sector, _ in sector_counts.most_common():
+    for sector, _ in sector_audit_counts.most_common():
         if sector in seen_sectors:
             continue
         seen_sectors.add(sector)
-        n = sector_counts[sector]
+        n = sector_audit_counts[sector]
         examples.append(anonymized_example(sector, n))
         if len(examples) >= 10:
             break
@@ -427,6 +436,7 @@ def compute_aggregates(
         "org_type_lead_rows": dict(lead_org_type),
         "size_proxy_unique_domains": dict(size_counts),
         "sector_unique_domains": dict(sector_counts.most_common(15)),
+        "sector_audit_counts": dict(sector_audit_counts.most_common(15)),
         "verdicts_leads": dict(verdicts),
         "anonymized_examples": examples,
         "public_agency_note": public_agency_note,

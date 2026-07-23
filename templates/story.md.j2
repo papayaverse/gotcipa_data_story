@@ -90,15 +90,15 @@ Among **{{ volume.user_lead_rows }}** lead rows (after filtering **{{ volume.lea
 
 ## What kinds of sites
 
-Sector tags are inferred from domain names. Counts are **unique domains**, not raw audit volume.
+Sector tags are inferred from domain names. Counts are **audit runs** (each time a URL was tested), not deduplicated by domain.
 
-![Sectors — unique domains, inferred](charts/{{ charts.sectors }})
+![Sectors — audit runs, inferred](charts/{{ charts.sectors }})
 
 <details>
 <summary>Sector table (data)</summary>
 
-| Sector | Unique domains |
-|--------|---------------:|
+| Sector | Audit runs |
+|--------|-----------:|
 {% for label, count in sector_rows -%}
 | {{ label }} | {{ count }} |
 {% endfor %}

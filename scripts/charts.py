@@ -227,8 +227,8 @@ def generate_all_charts(
         ),
         "sectors": chart_horizontal_bars(
             sector_items,
-            title="Sectors (unique domains, inferred)",
-            xlabel="Unique domains",
+            title="Sectors (audit runs, inferred)",
+            xlabel="Audit runs",
             filename="sectors.png",
             out_dir=charts_dir,
             color="#6b5b4a",

@@ -117,25 +117,25 @@ Among **160** lead rows (after filtering **13** internal, test, or disposable ad
 
 ## What kinds of sites
 
-Sector tags are inferred from domain names. Counts are **unique domains**, not raw audit volume.
+Sector tags are inferred from domain names. Counts are **audit runs** (each time a URL was tested), not deduplicated by domain.
 
-![Sectors — unique domains, inferred](charts/sectors.png)
+![Sectors — audit runs, inferred](charts/sectors.png)
 
 <details>
 <summary>Sector table (data)</summary>
 
-| Sector | Unique domains |
-|--------|---------------:|
-| General commerce | 215 |
-| Healthcare / pharma | 14 |
-| Education | 6 |
-| Jewelry / retail | 5 |
-| Automotive | 4 |
-| Veterinary / pet care | 2 |
-| E-commerce / DTC | 2 |
-| Insurance | 2 |
-| Government / public sector | 2 |
-| Restaurant / hospitality supply | 1 |
+| Sector | Audit runs |
+|--------|-----------:|
+| General commerce | 271 |
+| Veterinary / pet care | 45 |
+| Healthcare / pharma | 38 |
+| Restaurant / hospitality supply | 34 |
+| Jewelry / retail | 18 |
+| Automotive | 11 |
+| E-commerce / DTC | 11 |
+| Education | 9 |
+| Publishing / media | 7 |
+| Insurance | 3 |
 
 
 </details>
@@ -143,15 +143,15 @@ Sector tags are inferred from domain names. Counts are **unique domains**, not r
 ### Category-level examples (no contact details)
 
 - General commercial website (one of several similar sites in this dataset)
+- Regional veterinary or pet-care business (one of several similar sites in this dataset)
 - Healthcare or life-sciences organization (one of several similar sites in this dataset)
-- College or university property (one of several similar sites in this dataset)
+- Restaurant or hospitality supplier (one of several similar sites in this dataset)
 - Independent jewelry or specialty retailer (one of several similar sites in this dataset)
 - Automotive dealer or services (one of several similar sites in this dataset)
-- Regional veterinary or pet-care business
-- Direct-to-consumer or e-commerce brand
-- Insurance or benefits provider
-- Public-agency or state-related site
-- Restaurant or hospitality supplier
+- Direct-to-consumer or e-commerce brand (one of several similar sites in this dataset)
+- College or university property (one of several similar sites in this dataset)
+- Publisher or media property (one of several similar sites in this dataset)
+- Insurance or benefits provider (one of several similar sites in this dataset)
 
 
 ## Middle tech and ordinary commerce

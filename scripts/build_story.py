@@ -164,8 +164,8 @@ def main() -> None:
     size_items = [(label_map_size(k), v) for k, v in sorted(agg["size_proxy_unique_domains"].items(), key=lambda x: -x[1])]
     chart_size_proxy = svg_horizontal_bars(size_items, "Size proxy (unique domains)")
 
-    sector_items = list(agg["sector_unique_domains"].items())[:10]
-    chart_sectors = svg_horizontal_bars(sector_items, "Sectors (unique domains)")
+    sector_items = list(agg["sector_audit_counts"].items())[:10]
+    chart_sectors = svg_horizontal_bars(sector_items, "Sectors (audit runs)")
 
     user_leads = agg["volume"]["user_lead_rows"] or 1
     pct_free = round(100 * agg["volume"]["free_email_user_leads"] / user_leads)
