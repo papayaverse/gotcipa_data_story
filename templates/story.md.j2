@@ -27,6 +27,21 @@ Email lead captures (excluding internal/test addresses): **{{ spike.leads_last_1
 | Unique visitor emails (excl. internal/test) | {{ volume.unique_emails_users }} |
 | Runs with full accept + GPC session paths | {{ volume.full_accept_gpc_sessions }} |
 
+![14-day windows compared](charts/{{ charts.spike_comparison }})
+
+*Last 14 days vs prior 14 days · audit runs, unique domains, email leads*
+
+![Weekly audit runs and unique domains](charts/{{ charts.weekly_requests }})
+
+*Source: audit_requests export · through {{ meta.reference_end }}*
+
+![Weekly email leads](charts/{{ charts.weekly_leads }})
+
+*Source: audit_leads export · through {{ meta.reference_end }}*
+
+<details>
+<summary>Weekly tables (data)</summary>
+
 ### Weekly audit runs
 
 | Week | Audit runs | Unique domains |
@@ -34,8 +49,6 @@ Email lead captures (excluding internal/test addresses): **{{ spike.leads_last_1
 {% for row in weekly_requests -%}
 | {{ row.week }} | {{ row.audits }} | {{ row.unique_domains }} |
 {% endfor %}
-
-*Source: audit_requests export · through {{ meta.reference_end }}*
 
 ### Weekly email leads
 
@@ -45,7 +58,7 @@ Email lead captures (excluding internal/test addresses): **{{ spike.leads_last_1
 | {{ row.week }} | {{ row.leads }} |
 {% endfor %}
 
-*Source: audit_leads export · through {{ meta.reference_end }}*
+</details>
 
 {% if volume.repeat_testers_5plus %}
 ### Volume hygiene: repeat testers
@@ -67,23 +80,11 @@ Among **{{ volume.user_lead_rows }}** lead rows (after filtering **{{ volume.lea
 > {{ public_agency_note }}
 {% endif %}
 
-### Org type (unique domains, inferred)
-
-| Org type | Unique domains |
-|----------|---------------:|
-{% for label, count in org_type_rows -%}
-| {{ label }} | {{ count }} |
-{% endfor %}
+![Org type — unique domains, inferred](charts/{{ charts.org_type }})
 
 *Inferred from email/URL TLDs and domain keywords*
 
-### Size proxy (unique domains, inferred)
-
-| Size proxy | Unique domains |
-|------------|---------------:|
-{% for label, count in size_proxy_rows -%}
-| {{ label }} | {{ count }} |
-{% endfor %}
+![Size proxy — unique domains, inferred](charts/{{ charts.size_proxy }})
 
 *Not firmographic census data — heuristic buckets only*
 
@@ -91,11 +92,18 @@ Among **{{ volume.user_lead_rows }}** lead rows (after filtering **{{ volume.lea
 
 Sector tags are inferred from domain names. Counts are **unique domains**, not raw audit volume.
 
+![Sectors — unique domains, inferred](charts/{{ charts.sectors }})
+
+<details>
+<summary>Sector table (data)</summary>
+
 | Sector | Unique domains |
 |--------|---------------:|
 {% for label, count in sector_rows -%}
 | {{ label }} | {{ count }} |
 {% endfor %}
+
+</details>
 
 ### Category-level examples (no contact details)
 
@@ -124,4 +132,4 @@ Raw audit CSVs are not published in this repo. To refresh these numbers:
 
 1. Place private exports at `data/audit_leads.csv` and `data/audit_requests.csv`
 2. Run `python scripts/build_story.py`
-3. Commit `output/data_story.md` and `output/aggregates.json`
+3. Commit `output/data_story.md`, `output/charts/`, and `output/aggregates.json`

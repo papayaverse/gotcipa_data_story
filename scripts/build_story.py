@@ -10,13 +10,14 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
 
+from charts import generate_all_charts  # noqa: E402
 from enrich import compute_aggregates  # noqa: E402
 from load_csv import load_csv  # noqa: E402
 
 try:
     from jinja2 import Environment, FileSystemLoader, select_autoescape
 except ImportError:
-    print("Install dependencies: pip install jinja2", file=sys.stderr)
+    print("Install dependencies: pip install -r requirements.txt", file=sys.stderr)
     sys.exit(1)
 
 DATA_DIR = ROOT / "data"
@@ -169,6 +170,15 @@ def main() -> None:
     user_leads = agg["volume"]["user_lead_rows"] or 1
     pct_free = round(100 * agg["volume"]["free_email_user_leads"] / user_leads)
 
+    OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+    chart_files = generate_all_charts(
+        agg,
+        org_items=org_items,
+        size_items=size_items,
+        sector_items=sector_items,
+        out_dir=OUTPUT_DIR,
+    )
+
     context = {
         "meta": agg["meta"],
         "volume": agg["volume"],
@@ -182,6 +192,7 @@ def main() -> None:
         "org_type_rows": org_items,
         "size_proxy_rows": size_items,
         "sector_rows": sector_items,
+        "charts": chart_files,
     }
 
     env = Environment(
@@ -199,7 +210,6 @@ def main() -> None:
         chart_sectors=chart_sectors,
     )
 
-    OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
     md_path = OUTPUT_DIR / "data_story.md"
     html_path = OUTPUT_DIR / "liz_data_story.html"
     json_path = OUTPUT_DIR / "aggregates.json"
@@ -208,6 +218,7 @@ def main() -> None:
     json_path.write_text(json.dumps(agg, indent=2), encoding="utf-8")
 
     print(f"Wrote {md_path}")
+    print(f"Wrote charts in {OUTPUT_DIR / 'charts'}")
     print(f"Wrote {html_path} (local preview, gitignored)")
     print(f"Wrote {json_path}")
     print(

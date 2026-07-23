@@ -2,7 +2,7 @@
 
 Public aggregate report from [gotcipa.com](https://gotcipa.com) audit activity — regenerated locally from private CSV exports.
 
-**Published results:** [`output/data_story.md`](output/data_story.md) · [`output/aggregates.json`](output/aggregates.json)
+**Published results:** [`output/data_story.md`](output/data_story.md) · [`output/charts/`](output/charts/) · [`output/aggregates.json`](output/aggregates.json)
 
 Raw audit data (emails, URLs) stays on your machine and is **not** committed.
 
@@ -24,7 +24,7 @@ Raw audit data (emails, URLs) stays on your machine and is **not** committed.
    .venv/bin/python scripts/build_story.py
    ```
 
-4. **Public repo:** commit `output/data_story.md` and `output/aggregates.json`
+4. **Public repo:** commit `output/data_story.md`, `output/charts/*.png`, and `output/aggregates.json`
 5. **Local preview:** open `output/liz_data_story.html` in a browser (gitignored), or view the markdown on GitHub
 
    ```bash
@@ -38,6 +38,7 @@ Raw audit data (emails, URLs) stays on your machine and is **not** committed.
 |------|---------|
 | `data/*.csv` | No — PII |
 | `output/data_story.md` | Yes — aggregate narrative |
+| `output/charts/*.png` | Yes — seaborn charts embedded in markdown |
 | `output/aggregates.json` | Yes — machine-readable metrics |
 | `output/liz_data_story.html` | No — optional local HTML preview |
 | `*.docx`, root `*.csv` exports | No |

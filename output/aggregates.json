@@ -191,10 +191,10 @@
     "public_agency": 3
   },
   "size_proxy_unique_domains": {
-    "unknown": 79,
     "likely_smb": 152,
-    "enterprise_known": 6,
-    "agency_edu_nonprofit": 17
+    "agency_edu_nonprofit": 17,
+    "unknown": 79,
+    "enterprise_known": 6
   },
   "sector_unique_domains": {
     "General commerce": 215,
@@ -202,12 +202,12 @@
     "Education": 6,
     "Jewelry / retail": 5,
     "Automotive": 4,
+    "Veterinary / pet care": 2,
+    "E-commerce / DTC": 2,
     "Insurance": 2,
     "Government / public sector": 2,
-    "E-commerce / DTC": 2,
-    "Veterinary / pet care": 2,
-    "Publishing / media": 1,
-    "Restaurant / hospitality supply": 1
+    "Restaurant / hospitality supply": 1,
+    "Publishing / media": 1
   },
   "verdicts_leads": {
     "HIGH": 9,
@@ -219,11 +219,11 @@
     "College or university property (one of several similar sites in this dataset)",
     "Independent jewelry or specialty retailer (one of several similar sites in this dataset)",
     "Automotive dealer or services (one of several similar sites in this dataset)",
+    "Regional veterinary or pet-care business",
+    "Direct-to-consumer or e-commerce brand",
     "Insurance or benefits provider",
     "Public-agency or state-related site",
-    "Direct-to-consumer or e-commerce brand",
-    "Regional veterinary or pet-care business",
-    "Publisher or media property"
+    "Restaurant or hospitality supplier"
   ],
   "public_agency_note": "Public-agency signals are present in the dataset (e.g. .gov email or government-related domains).",
   "methodology": {

@@ -27,6 +27,21 @@ Email lead captures (excluding internal/test addresses): **56** vs 37 in those s
 | Unique visitor emails (excl. internal/test) | 98 |
 | Runs with full accept + GPC session paths | 46 |
 
+![14-day windows compared](charts/spike_comparison.png)
+
+*Last 14 days vs prior 14 days · audit runs, unique domains, email leads*
+
+![Weekly audit runs and unique domains](charts/weekly_requests.png)
+
+*Source: audit_requests export · through 2026-07-22*
+
+![Weekly email leads](charts/weekly_leads.png)
+
+*Source: audit_leads export · through 2026-07-22*
+
+<details>
+<summary>Weekly tables (data)</summary>
+
 ### Weekly audit runs
 
 | Week | Audit runs | Unique domains |
@@ -47,8 +62,6 @@ Email lead captures (excluding internal/test addresses): **56** vs 37 in those s
 | 2026-W30 | 41 | 17 |
 
 
-*Source: audit_requests export · through 2026-07-22*
-
 ### Weekly email leads
 
 | Week | Leads |
@@ -66,7 +79,7 @@ Email lead captures (excluding internal/test addresses): **56** vs 37 in those s
 | 2026-W30 | 14 |
 
 
-*Source: audit_leads export · through 2026-07-22*
+</details>
 
 
 ### Volume hygiene: repeat testers
@@ -94,33 +107,22 @@ Among **160** lead rows (after filtering **13** internal, test, or disposable ad
 > Public-agency signals are present in the dataset (e.g. .gov email or government-related domains).
 
 
-### Org type (unique domains, inferred)
-
-| Org type | Unique domains |
-|----------|---------------:|
-| Commercial | 237 |
-| Education | 8 |
-| Nonprofit (.org) | 6 |
-| Public agency | 3 |
-
+![Org type — unique domains, inferred](charts/org_type.png)
 
 *Inferred from email/URL TLDs and domain keywords*
 
-### Size proxy (unique domains, inferred)
-
-| Size proxy | Unique domains |
-|------------|---------------:|
-| Likely SMB | 152 |
-| Unknown | 79 |
-| Agency / edu / nonprofit | 17 |
-| Known enterprise | 6 |
-
+![Size proxy — unique domains, inferred](charts/size_proxy.png)
 
 *Not firmographic census data — heuristic buckets only*
 
 ## What kinds of sites
 
 Sector tags are inferred from domain names. Counts are **unique domains**, not raw audit volume.
+
+![Sectors — unique domains, inferred](charts/sectors.png)
+
+<details>
+<summary>Sector table (data)</summary>
 
 | Sector | Unique domains |
 |--------|---------------:|
@@ -129,12 +131,14 @@ Sector tags are inferred from domain names. Counts are **unique domains**, not r
 | Education | 6 |
 | Jewelry / retail | 5 |
 | Automotive | 4 |
+| Veterinary / pet care | 2 |
+| E-commerce / DTC | 2 |
 | Insurance | 2 |
 | Government / public sector | 2 |
-| E-commerce / DTC | 2 |
-| Veterinary / pet care | 2 |
-| Publishing / media | 1 |
+| Restaurant / hospitality supply | 1 |
 
+
+</details>
 
 ### Category-level examples (no contact details)
 
@@ -143,11 +147,11 @@ Sector tags are inferred from domain names. Counts are **unique domains**, not r
 - College or university property (one of several similar sites in this dataset)
 - Independent jewelry or specialty retailer (one of several similar sites in this dataset)
 - Automotive dealer or services (one of several similar sites in this dataset)
+- Regional veterinary or pet-care business
+- Direct-to-consumer or e-commerce brand
 - Insurance or benefits provider
 - Public-agency or state-related site
-- Direct-to-consumer or e-commerce brand
-- Regional veterinary or pet-care business
-- Publisher or media property
+- Restaurant or hospitality supplier
 
 
 ## Middle tech and ordinary commerce
@@ -171,4 +175,4 @@ Raw audit CSVs are not published in this repo. To refresh these numbers:
 
 1. Place private exports at `data/audit_leads.csv` and `data/audit_requests.csv`
 2. Run `python scripts/build_story.py`
-3. Commit `output/data_story.md` and `output/aggregates.json`
+3. Commit `output/data_story.md`, `output/charts/`, and `output/aggregates.json`
